@@ -117,8 +117,8 @@ public class RetirementController implements Initializable {
 			Retirement retirement = new Retirement(iYearsToWork, dAnnualReturnWorking, iYearsRetired,
 					dAnnualReturnRetired, dRequiredIncome, dMonthlySSI);
 
-			txtNeedToSave.setText(df.format(-retirement.TotalAmountSaved()));
-			txtSaveEachMonth.setText(df.format(retirement.AmountToSave()));
+			txtNeedToSave.setText("$" + df.format(-retirement.TotalAmountSaved()));
+			txtSaveEachMonth.setText("$" + df.format(retirement.AmountToSave()));
 		}
 	}
 	
