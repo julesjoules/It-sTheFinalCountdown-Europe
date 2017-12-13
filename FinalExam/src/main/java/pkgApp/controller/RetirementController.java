@@ -1,9 +1,8 @@
-package pkgApp.controller;
+package pkgApp.controller;   
 
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.ResourceBundle;
-import org.springframework.util.NumberUtils;
+import java.util.ResourceBundle;  
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,50 +74,73 @@ public class RetirementController implements Initializable {
 		txtRequiredIncome.clear();
 		txtMonthlySSI.clear();
 		
+		
 	}
 	
 	@FXML
 	public void btnCalculate(ActionEvent event) {
 		// Call AmountToSave and TotalAmountSaved and populate 
 		if(txtYearsToWork.getText() == null || txtYearsToWork.getText().length() < 1){
-			alertMessage("Years to Work is Empty", "Years to Work should be between 0-100yrs");
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("FIX ME. or are you retired?");
+            alert.setHeaderText("Years to Work=Empty. Change to: 0-100yrs");
+            alert.showAndWait();
+			
 		}
 		// annual return(Working)
 		else if (txtAnnualReturn.getText() == null || txtAnnualReturn.getText().length() < 1) {
-			alertMessage("Annual Return for Working is Empty", "Annual Return should be between 0-20%");
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Look what ya did you little gerk!");
+            alert.setHeaderText("Annual Return for Working=Empty. Change to: 0-20%");
+            alert.showAndWait();
 		}
 		// years retired
 		else if(txtYearsRetired.getText() == null || txtYearsRetired.getText().length() <1){
-			alertMessage("Years Retired is Empty", "Years retired should be between 0-100yrs");
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Kevin, your such a little disease!");
+            alert.setHeaderText("Years Retired=Empty. Change to: 0-100yrs");
+            alert.showAndWait();
+			
 		}
 		// annual return(Retired) 
 		else if (txtAnnualReturn2.getText() == null || txtAnnualReturn2.getText().length() < 1) {
-			alertMessage("Annual Return for Retired is Empty", "Annual Return should be between 0-3%");
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Oh wow. Way to go.");
+            alert.setHeaderText("Annual Return for Retired=Empty. Change to: 0-3%");
+            alert.showAndWait();
 		}
-		// Required Income
+		// Required Income 
 		else if (txtRequiredIncome.getText() == null || txtRequiredIncome.getText().length() < 1) {
-			alertMessage("Required Income is Empty", "Needs Input");
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("How many licks does it take to get to the center of a lolipop?");
+            alert.setHeaderText("Required Income=Empty. Needs Input");
+            alert.showAndWait();
 		}
 		// Monthly SSI
 		else if (txtMonthlySSI.getText() == null || txtMonthlySSI.getText().length() < 1) {
-			alertMessage("Monthly SSI is Empty", "Needs Input for Monthly SSI");
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("FIX ME. unless you dont do your taxes.");
+            alert.setHeaderText("Monthly SSI=Empty. Needs Input");
+            alert.showAndWait();
 		}
 		
 		else {
+
 			// TODO: Call AmountToSave and TotalAmountSaved and populate
 			DecimalFormat df = new DecimalFormat("###,##0.00");
 
 			int iYearsToWork = Integer.valueOf(txtYearsToWork.getText());
-			double dAnnualReturnWorking = Double.valueOf(txtAnnualReturn.getText()) / 100;
+			double dAnnualReturnWorking = Double.valueOf(txtAnnualReturn.getText());
 			int iYearsRetired = Integer.valueOf(txtYearsRetired.getText());
-			double dAnnualReturnRetired = Double.valueOf(txtAnnualReturn2.getText()) / 100;
+			double dAnnualReturnRetired = Double.valueOf(txtAnnualReturn2.getText());
 			double dRequiredIncome = Double.valueOf(txtRequiredIncome.getText());
 			double dMonthlySSI = Double.valueOf(txtMonthlySSI.getText());
 			Retirement retirement = new Retirement(iYearsToWork, dAnnualReturnWorking, iYearsRetired,
 					dAnnualReturnRetired, dRequiredIncome, dMonthlySSI);
 
-			txtNeedToSave.setText("$" + df.format(-retirement.TotalAmountSaved()));
+			txtNeedToSave.setText("$" + df.format(retirement.TotalAmountSaved()));
 			txtSaveEachMonth.setText("$" + df.format(retirement.AmountToSave()));
+			
 		}
 	}
 	
@@ -127,10 +149,10 @@ public class RetirementController implements Initializable {
 	public void alertMessage(String info, String help){
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setTitle("WARNING");
-		alert.setHeaderText(info);
-		alert.setContentText(help);
+		alert.setHeaderText("HELPME");
+		alert.setContentText("YOU NEED HELP");
 		alert.showAndWait();
-	}
+	}//i used one for each instead of this singular one.
 	
 	
 }
