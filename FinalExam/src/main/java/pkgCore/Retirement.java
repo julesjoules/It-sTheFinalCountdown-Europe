@@ -15,19 +15,14 @@ public class Retirement {
 	private double dMonthlySSI;
 	private double TotalAmountSaved;
 	private double dMonthlySavings;
-	
-	private double dMonthsToWork;
-	private double rAnnualReturnWorking;
-	private double dMonthsRetired;
-	private double rAnnaulReturnRetired;
-	
+
 	private double pv;
 	private double pmt;
 	
 
 	
 	
-	//TODO: Build the contructor, getters and setters for the attributes above.
+
 	public Retirement(int iYearsToWork, double dAnnualReturnWorking, int iYearsRetired, double dAnnualReturnRetired,
 			double dRequiredIncome, double dMonthlySSI) {
 		this.iYearsToWork = iYearsToWork;
@@ -37,20 +32,12 @@ public class Retirement {
 		this.dRequiredIncome = dRequiredIncome;
 		this.dMonthlySSI = dMonthlySSI;
 		
-		this.dMonthsToWork = iYearsToWork * 12;
-		this.rAnnualReturnWorking = dAnnualReturnWorking / 12;
-		this.dMonthsRetired = iYearsRetired * 12;
-		this.rAnnaulReturnRetired = dAnnualReturnRetired / 12;
 		
-		
-		//this.rAnnualReturnRetired / 12;
 	}
 	
 	public double AmountToSave()
 	{
-		//TODO: Determine the amount to save each month based on TotalAmountSaved, YearsToWork
-		//		and Annual return while working
-		pmt = FinanceLib.pmt(rAnnualReturnWorking, dMonthsToWork, 0, pv, false);
+		pmt = Math.abs(FinanceLib.pmt(dAnnualReturnWorking / 12, iYearsToWork * 12, 0, pv, false));
 		return pmt;
 	}
 	
@@ -58,7 +45,7 @@ public class Retirement {
 	{
 		//	TODO: Determine amount to be saved based on Monthly SSI, Required Income, Annual return during retirement
 		//		and number of years retired.
-		pv = FinanceLib.pv(rAnnaulReturnRetired, dMonthsRetired, dRequiredIncome - dMonthlySSI, 0, false);
+		pv = Math.abs(FinanceLib.pv(dAnnualReturnRetired / 12, iYearsRetired * 12, dRequiredIncome - dMonthlySSI, 0, false));
 		return pv;
 	}
 	public int getiYearsToWork( ) {

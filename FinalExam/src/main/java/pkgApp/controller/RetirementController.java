@@ -83,7 +83,7 @@ public class RetirementController implements Initializable {
 		if(txtYearsToWork.getText() == null || txtYearsToWork.getText().length() < 1){
 			Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("FIX ME. or are you retired?");
-            alert.setHeaderText("Years to Work=Empty. Change to: 0-100yrs");
+            alert.setHeaderText("Years to Work is Empty. Change to: 0-100yrs");
             alert.showAndWait();
 			
 		}

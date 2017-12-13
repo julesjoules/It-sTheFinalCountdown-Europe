@@ -11,26 +11,13 @@ import pkgCore.Retirement;
 
 public class TestRetirement {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
 	@Test
 	public void testRetirement() {
-		int iYearsToWork = 40;
-		double dAnnualReturnWorking = 0.07;
-		int iYearsRetired = 20;
-		double dAnnualReturnRetired = 0.02;
-		double dRequiredIncome = 10000;
-		double dMonthlySSI = 2642;
-		
-		Retirement retirement = new Retirement(iYearsToWork, dAnnualReturnWorking, iYearsRetired,
-				dAnnualReturnRetired, dRequiredIncome, dMonthlySSI);
-		
-		DecimalFormat df = new DecimalFormat("###,##0.00");
-		
-		assertEquals("1,454,485.55", df.format(-retirement.TotalAmountSaved()));
-		assertEquals("554.13", df.format(retirement.AmountToSave()));
-	}
+		Retirement r = new Retirement(40, 0.07, 20, 0.02, 10000, 2642);
+		System.out.println(r.AmountToSave()); 
+		System.out.println(r.TotalAmountSaved()); 
+		assertTrue(554.1291237405718 == r.AmountToSave());
+		assertTrue(1454485.5484009797 == r.TotalAmountSaved());
 
+}
 }
