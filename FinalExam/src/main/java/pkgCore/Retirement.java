@@ -13,8 +13,6 @@ public class Retirement {
 	private double dAnnualReturnRetired;
 	private double dRequiredIncome;
 	private double dMonthlySSI;
-	private double TotalAmountSaved;
-	private double dMonthlySavings;
 
 	private double pv;
 	private double pmt;
@@ -25,6 +23,8 @@ public class Retirement {
 
 	public Retirement(int iYearsToWork, double dAnnualReturnWorking, int iYearsRetired, double dAnnualReturnRetired,
 			double dRequiredIncome, double dMonthlySSI) {
+		
+		super();
 		this.iYearsToWork = iYearsToWork;
 		this.dAnnualReturnWorking = dAnnualReturnWorking;
 		this.iYearsRetired = iYearsRetired;
