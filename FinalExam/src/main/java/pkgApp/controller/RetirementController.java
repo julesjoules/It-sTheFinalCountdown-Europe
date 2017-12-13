@@ -91,14 +91,14 @@ public class RetirementController implements Initializable {
 		else if (txtAnnualReturn.getText() == null || txtAnnualReturn.getText().length() < 1) {
 			Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Look what ya did you little gerk!");
-            alert.setHeaderText("Annual Return for Working=Empty. Change to: 0-20%");
+            alert.setHeaderText("Annual Return for Working is Empty. Change to: 0-20%");
             alert.showAndWait();
 		}
 		// years retired
 		else if(txtYearsRetired.getText() == null || txtYearsRetired.getText().length() <1){
 			Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Kevin, your such a little disease!");
-            alert.setHeaderText("Years Retired=Empty. Change to: 0-100yrs");
+            alert.setHeaderText("Years Retired is Empty. Change to: 0-100yrs");
             alert.showAndWait();
 			
 		}
@@ -106,21 +106,21 @@ public class RetirementController implements Initializable {
 		else if (txtAnnualReturn2.getText() == null || txtAnnualReturn2.getText().length() < 1) {
 			Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Oh wow. Way to go.");
-            alert.setHeaderText("Annual Return for Retired=Empty. Change to: 0-3%");
+            alert.setHeaderText("Annual Return for Retired is Empty. Change to: 0-3%");
             alert.showAndWait();
 		}
 		// Required Income 
 		else if (txtRequiredIncome.getText() == null || txtRequiredIncome.getText().length() < 1) {
 			Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("How many licks does it take to get to the center of a lolipop?");
-            alert.setHeaderText("Required Income=Empty. Needs Input");
+            alert.setHeaderText("Required Income is Empty. Needs Input");
             alert.showAndWait();
 		}
 		// Monthly SSI
 		else if (txtMonthlySSI.getText() == null || txtMonthlySSI.getText().length() < 1) {
 			Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("FIX ME. unless you dont do your taxes.");
-            alert.setHeaderText("Monthly SSI=Empty. Needs Input");
+            alert.setHeaderText("Monthly SSI is Empty. Needs Input");
             alert.showAndWait();
 		}
 		
@@ -149,7 +149,7 @@ public class RetirementController implements Initializable {
 	public void alertMessage(String info, String help){
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setTitle("WARNING");
-		alert.setHeaderText("HELPME");
+		alert.setHeaderText("INCORRECT");
 		alert.setContentText("YOU NEED HELP");
 		alert.showAndWait();
 	}//i used one for each instead of this singular one.
